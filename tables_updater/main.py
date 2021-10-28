@@ -1,6 +1,7 @@
 import openpyxl
 import httplib2
 import googleapiclient.discovery
+import os
 from oauth2client.service_account import ServiceAccountCredentials
 
 
@@ -74,6 +75,11 @@ def names_equal(name1, name2):
         return res and n1[2] == n2[2]
     return res
 
+
+files_at_folder = files = os.listdir()
+if 'input.txt' not in files_at_folder:
+    print('Ошибка: в текущей директории нет input.txt, создайте его по шаблону в before-usage/input-data-template.txt')
+    exit(1)
 
 from_sheet = "Математика"
 with open('input.txt', 'r', encoding='utf-8') as f:
