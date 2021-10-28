@@ -1,4 +1,5 @@
 import httplib2
+import os
 import googleapiclient.discovery
 from oauth2client.service_account import ServiceAccountCredentials
 
@@ -117,6 +118,13 @@ def prepare_sheet(sheet_name, sheet_list):
         add_sheet(sheet_name, 1000, 26)
     clear_sheet(sheet_name, 'A1', row_count=1000, column_count=26)
 
+
+files_at_folder = files = os.listdir()
+if 'input.txt' not in files_at_folder:
+    print('Ошибка: в текущей директории нет input.txt, создайте его по шаблону в before-usage/input-data-template.txt')
+
+if 'regions.txt' not in files_at_folder:
+    print('Ошибка: в текущей директории нет regions.txt, создайте его и добавьте интересующий вас регион')
 
 # Файл, полученный в Google Developer Console
 with open('input.txt', 'r', encoding='utf-8') as f:
