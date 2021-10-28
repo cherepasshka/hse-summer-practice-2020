@@ -122,9 +122,11 @@ def prepare_sheet(sheet_name, sheet_list):
 files_at_folder = files = os.listdir()
 if 'input.txt' not in files_at_folder:
     print('Ошибка: в текущей директории нет input.txt, создайте его по шаблону в before-usage/input-data-template.txt')
+    exit(1)
 
 if 'regions.txt' not in files_at_folder:
     print('Ошибка: в текущей директории нет regions.txt, создайте его и добавьте интересующий вас регион')
+    exit(1)
 
 # Файл, полученный в Google Developer Console
 with open('input.txt', 'r', encoding='utf-8') as f:
