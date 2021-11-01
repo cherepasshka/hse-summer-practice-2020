@@ -4,8 +4,15 @@ Firstly create new virtual environment
 ```
 python3 -m venv venv
 ```
+Then activate it.
+
+On Windows:
 ```
 venv\Scripts\activate.bat
+```
+On Linux:
+```
+bash venv/bin/activate
 ```
 Secondly install requirements
 ```
